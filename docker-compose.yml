@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    restart: on-failure
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: db
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+
+  php-fpm:
+    build:
+      context: ./.docker/apache
+      dockerfile: ./Dockerfile
+    hostname: php-fpm
+    volumes:
+      - "./:/var/www/html"
+      - './.docker/apache/000-default.config:/etc/apache2/sites-available/000-default.conf'
+    working_dir: "/var/www/html"
+    ports:
+      - '80:80'
+
