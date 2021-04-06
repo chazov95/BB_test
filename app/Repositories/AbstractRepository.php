@@ -3,6 +3,7 @@
 
 namespace App\Repositories;
 
+use mysqli;
 use Settings;
 
 
@@ -19,16 +20,18 @@ abstract class AbstractRepository
 
     public function __construct()
     {
-        require_once('./.settings.php');
+        require_once('.settings.php');
         $this->host = Settings::host;
         $this->user = Settings::user;
         $this->password = Settings::password;
         $this->database = Settings::database;
     }
 
+    /**
+     * @return false|mysqli
+     */
     public function connect()
     {
-        return mysqli_connect($this->host, $this->user, $this->password, $this->database);
+        return new mysqli($this->host, $this->user,  $this->password, $this->database);
     }
-
 }

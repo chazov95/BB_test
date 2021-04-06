@@ -33,6 +33,7 @@ class FormController
             return ['ошибка при сохранении'];
         }
 
-        return $bankRequestService->calculateProduct($newClient);
+        return ['Заявка оформлена'];
+        /*return $bankRequestService->calculateProduct($newClient);*/
     }
 }

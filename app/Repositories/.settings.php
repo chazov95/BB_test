@@ -2,7 +2,7 @@
 
 class Settings
 {
-    const host = 'mysql';
+    const host = 'db';
     const user = 'db';
     const password = 'db';
     const database = 'db';
