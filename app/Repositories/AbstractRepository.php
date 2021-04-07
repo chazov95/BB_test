@@ -17,6 +17,8 @@ abstract class AbstractRepository
     private string $user;
     private string $password;
     private string $database;
+    private string $socket;
+    private string $port;
 
     public function __construct()
     {
@@ -25,6 +27,8 @@ abstract class AbstractRepository
         $this->user = Settings::user;
         $this->password = Settings::password;
         $this->database = Settings::database;
+        $this->port = Settings::port;
+        $this->socket = Settings::soket;
     }
 
     /**
@@ -32,6 +36,6 @@ abstract class AbstractRepository
      */
     public function connect()
     {
-        return new mysqli($this->host, $this->user,  $this->password, $this->database);
+         return new mysqli($this->host, $this->user,  $this->password, $this->database,$this->port,$this->socket);
     }
 }

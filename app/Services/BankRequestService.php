@@ -12,12 +12,18 @@ use App\Models\NaturalClient;
 use App\Repositories\BankRequestRepository;
 use App\Utils\Request;
 
+/**
+ * Class BankRequestService
+ * @package App\Services
+ */
 class BankRequestService
 {
-
-    public function saveBankRequest(\App\Utils\Request $request): ?ClientData
+    /**
+     * @param Request $request
+     * @return ClientData|null
+     */
+    public function saveBankRequest(Request $request): ?ClientData
     {
-        //TODO собрать модельки отправить в репозиторий
         $clientData = new ClientData();
         $product = $request->get('product');
         $client = $request->get('client');
@@ -71,5 +77,6 @@ class BankRequestService
 
     public function calculateProduct(ClientData $newClient)
     {
+        //TODO метод для проведения расчетов
     }
 }

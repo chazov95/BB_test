@@ -8,8 +8,16 @@ use App\Services\BankRequestService;
 use App\Utils\Request;
 use App\Utils\Validator;
 
+/**
+ * Class FormController
+ * @package App\Controllers
+ */
 class FormController
 {
+    /**
+     * @param Request $request
+     * @return array|string[]
+     */
     public function addBankRequest(Request $request): array
     {
         $product = $request->get('product');
@@ -34,6 +42,7 @@ class FormController
         }
 
         return ['Заявка оформлена'];
+        //TODO возвращать посчитанные данные, когда будет реализован метод calculateProduct()
         /*return $bankRequestService->calculateProduct($newClient);*/
     }
 }

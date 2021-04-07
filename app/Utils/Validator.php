@@ -30,18 +30,30 @@ class Validator
         return self::validateCreditData($product);
     }
 
+    /**
+     * @param array $client
+     * @return array
+     */
     public static function validateNaturalData(array $client): array
     {
         //TODO
         return self::validateCreditData($client);
     }
 
+    /**
+     * @param array $client
+     * @return array
+     */
     public static function validateLegalData(array $client): array
     {
         //TODO
         return self::validateCreditData($client);
     }
 
+    /**
+     * @param array $product
+     * @return string[]|null
+     */
     public static function validateProductData(array $product): ?array
     {
         $errors = [];
@@ -68,6 +80,10 @@ class Validator
         return null;
     }
 
+    /**
+     * @param array $client
+     * @return string[]|null
+     */
     public static function validateClientData(array $client): ?array
     {
         $errors = [];
